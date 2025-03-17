@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Crime Mapping System</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>Virtual Crime Mapping System</h1>
+            
+            <div class="search-section">
+                <div class="input-group">
+                    <input type="text" id="area-search" placeholder="Search for an area">
+                    <button onclick="searchArea()">Search</button>
+                </div>
+            </div>
+            
+            <div class="input-section">
+                <h2>Crime Locations</h2>
+                <div id="crime-list">
+                    <h3>Added Locations:</h3>
+                    <ul id="locations-list"></ul>
+                </div>
+            </div>
+
+            <div class="route-section">
+                <h2>Plan Safe Route</h2>
+                <div class="input-group">
+                    <input type="text" id="start-location" placeholder="Enter starting point">
+                    <input type="text" id="end-location" placeholder="Enter destination">
+                    <select id="transport-mode">
+                        <option value="foot">Walking</option>
+                        <option value="bike">Cycling</option>
+                        <option value="car">Driving</option>
+                        <option value="train">Public Transit</option>
+                    </select>
+                    <button onclick="findSafeRoute()">Find Safe Route</button>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button onclick="computeConvexHull()">Show Crime Zone</button>
+                <button onclick="clearMap()">Clear Map</button>
+            </div>
+
+            <div id="instructions" class="instructions">
+                <h3>Instructions:</h3>
+                <p>1. Click anywhere on the map to mark crime locations</p>
+                <p>2. Add at least 3 locations, then click "Show Crime Zone"</p>
+                <p>3. Type start and end locations, press Enter to search</p>
+                <p>4. Click "Find Safe Route" for navigation</p>
+            </div>
+        </div>
+        
+        <div id="map" class="map"></div>
+    </div>
+
+    <!-- Add Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Add OSRM routing engine -->
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+    <script src="convexHull.js"></script>
+    <script src="app.js"></script>
+</body>
+</html> 
