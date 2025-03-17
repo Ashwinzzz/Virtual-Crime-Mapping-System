@@ -120,7 +120,3 @@ Contributions are welcome! Please help us improve by:
 2. Improving route calculation algorithms
 3. Enhancing user interface and experience
 4. Adding support for more cities and regions
-
-## License
-
-This project is open source and available under the MIT License. 
